@@ -2,8 +2,8 @@
  * Created by: Bob Baloney
  * Date Created: April 20, 2022
  * 
- * Last Edited by: 
- * Last Edited:
+ * Last Edited by: Yao Wang
+ * Last Edited: Yao Wang 
  * 
  * Description: Spawns bircks
 ****/
@@ -19,6 +19,7 @@ public class BrickSpawner : MonoBehaviour
     public GameObject brickPrefab; 
     public float paddingBetweenBricks = 0.25f; 
     private Vector2 brickPadding = new Vector2(0,0);  
+    private GameObject brickGo; //add brickGo
 
 
     // Start is called before the first frame update
@@ -34,15 +35,17 @@ public class BrickSpawner : MonoBehaviour
         {
             for(int x=0; x < 7; x++)
             {
-                Vector3 pos = new Vector3(x * brickPadding.x , y * brickPadding.y, 0); 
-              
-                brickGo = Instantiate.brickPrefab; 
-              
+                Vector3 pos = new Vector3(x * brickPadding.x , y * brickPadding.y, 0);
+
+                brickGo = Instantiate(brickPrefab); 
+                
                 brickGo.transform.parent = transform; 
                 brickGo.transform.localPosition = pos; 
 
-            }//end for(int x=0; x < 9; x++)
-        }//end for (int y=0; y < 9; y++)
+            }//end for (int x = 0; x < 9; x++) 
+        }//end for (int y = 0; y < 9; y++) 
     }
 
+
+    
 }
